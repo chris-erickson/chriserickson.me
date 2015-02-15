@@ -1,5 +1,6 @@
 *.pid
 *.pyc
+.DS_Store
 npm-debug.log
 
 cache/

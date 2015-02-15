@@ -41,6 +41,13 @@ THEME = 'theme'
 PATH = 'content'
 TYPOGRIFY = True
 
+# Static Files
+STATIC_PATHS = ['images', 'extra']
+EXTRA_PATH_METADATA = {
+    'extra/CNAME': {'path': 'CNAME'},
+    'extra/robots.txt': {'path': 'robots.txt'},
+}
+
 # Pagination
 DEFAULT_PAGINATION = 10
 DEFAULT_ORPHANS = 3
