@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title_front %}Archives{% endblock %}
+
+{% block body %}
+
+<h2>Archives</h2>
+<p>List of all posts in this blog, ordered by date.</p>
+<dl>
+{% for article in dates %}
+   <dt><time datetime="{{ article.date.strftime('%Y-%m-%d') }}" title="{{ article.date.strftime('%Y-%m-%d') }}">{{ article.date.strftime('%-d %B %Y') }}</time></dt>
+   <dd><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></dd>
+{% endfor %}
+</dl>
+
+{% endblock body %}
