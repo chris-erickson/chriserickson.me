@@ -1,0 +1,22 @@
+{
+  "name": "chriserickson.me",
+  "version": "0.0.0",
+  "authors": [
+    "Chris Erickson"
+  ],
+  "description": "A blog of worthless thoughts.",
+  "license": "MIT",
+  "homepage": "http://chriserickson.me",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bigfoot":"2.1.1",
+    "bootstrap": "~3.3.1"
+  }
+}

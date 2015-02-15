@@ -1,0 +1,8 @@
+*.pid
+*.pyc
+npm-debug.log
+
+cache/
+output/
+theme/static/vendor/
+node_modules/
