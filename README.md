@@ -14,7 +14,7 @@ mkvirtualenv chriserickson.me
 # Activate virtualenv
 source chriserickson.me/bin/activate
 # Clone the git repo
-git clone git://github.com/alefteris/thanoslefteris.com.git chriserickson.me
+git clone git@github.com:chris-erickson/chriserickson.me.git chriserickson.me
 cd chriserickson.me
 # Install Python Requirements
 pip install -r requirements.txt
