@@ -1,73 +1,72 @@
 <!doctype html>
 <html lang="{{ DEFAULT_LANG }}">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>{% block title_front %}{% endblock %}{% block title_seperator %} | {% endblock %}{% block title_end %}{{ SITENAME }}{% endblock title_end %}</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	{# <link rel="author" href="{{ SITEURL }}/about.html"> #}
-	{# <link rel="canonical" href="{{ SITEURL }}/{{ output_file }}"> #}
-	{# <meta property="og:site_name" content="{{ SITENAME }}"> #}
-	{# <meta property="og:url" content="{{ SITEURL }}/{{ output_file }}"> #}
-	{# <meta property="fb:profile_id" content="{{ FACEBOOK_PROFILE_ID }}"> #}
-	{# <meta name="twitter:creator" content="@{{ TWITTER_USERNAME }}"> #}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block title_front %}{% endblock %}{% block title_seperator %} | {% endblock %}{% block title_end %}{{ SITENAME }}{% endblock title_end %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {# <link rel="author" href="{{ SITEURL }}/about.html"> #}
+    {# <link rel="canonical" href="{{ SITEURL }}/{{ output_file }}"> #}
+    {# <meta property="og:site_name" content="{{ SITENAME }}"> #}
+    {# <meta property="og:url" content="{{ SITEURL }}/{{ output_file }}"> #}
+    {# <meta property="fb:profile_id" content="{{ FACEBOOK_PROFILE_ID }}"> #}
+    {# <meta name="twitter:creator" content="@{{ TWITTER_USERNAME }}"> #}
 
-	{% block head_extra %}{% endblock head_extra %}
+    {% block head_extra %}{% endblock head_extra %}
 
-	{% block feeds %}
-	   {% if FEED_ALL_ATOM %}
-	      <link rel="alternate" type="application/atom+xml" href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" title="{{ SITENAME }} Atom Feed">
-	   {% endif %}
-	{% endblock feeds %}
+    {% block feeds %}
+       {% if FEED_ALL_ATOM %}
+          <link rel="alternate" type="application/atom+xml" href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" title="{{ SITENAME }} Atom Feed">
+       {% endif %}
+    {% endblock feeds %}
 
-	<script src="//use.typekit.net/vrr2fgk.js"></script>
-	<script>try{Typekit.load();}catch(e){}</script>
+    <script src="//use.typekit.net/vrr2fgk.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
 
-	{% assets filters="less,cleancss", output="css/site.min.css", "less/site.less" %}
-	<link rel="stylesheet" href="{{ SITEURL }}/{{ ASSET_URL }}">
-	{% endassets %}
-	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    {% assets filters="less,cleancss", output="css/site.min.css", "less/site.less" %}
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ ASSET_URL }}">
+    {% endassets %}
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
 <body>
-	{% include "includes/nav.html" %}
+    {% include "includes/nav.html" %}
 
-	<!-- Page Header -->
-	<!-- Set your background image for this header on the line below. -->
-	<header>
-		<div class="container-fluid masthead">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-					<div class="site-heading">
-						<h1>{{ SITENAME }}</h1>
-						{# <h1><a href="{{ SITEURL }}">{{ SITENAME }}</a></h1> #}
-						<hr class="small">
-						<span class="subheading">{{ SITETAGLINE }}</span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header>
+        <div class="container-fluid masthead">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1><a href="{{ SITEURL }}">{{ SITENAME }}</a></h1>
+                        <hr class="small">
+                        <span class="subheading">{{ SITETAGLINE }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-	<!-- Main Content -->
-	<main>
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-				{% block body %}
-				{% endblock body %}
-			</div>
-		</div>
-	</div>
+    <!-- Main Content -->
+    <main>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                {% block body %}
+                {% endblock body %}
+            </div>
+        </div>
+    </div>
 
-	</main>
+    </main>
 
-	{% include "includes/footer.html" %}
+    {% include "includes/footer.html" %}
 
-	{% assets filters="uglifyjs", output="js/site.min.js", "vendor/jquery/dist/jquery.js", "vendor/bootstrap/dist/js/bootstrap.min.js", "vendor/bigfoot/dist/bigfoot.min.js", "js/site.js" %}
-	<script src="{{ SITEURL }}/{{ ASSET_URL }}"></script>
-	{% endassets %}
+    {% assets filters="uglifyjs", output="js/site.min.js", "vendor/jquery/dist/jquery.js", "vendor/bootstrap/dist/js/bootstrap.min.js", "vendor/bigfoot/dist/bigfoot.min.js", "js/site.js" %}
+    <script src="{{ SITEURL }}/{{ ASSET_URL }}"></script>
+    {% endassets %}
 
-	{% block js_extra %}{% endblock js_extra %}
+    {% block js_extra %}{% endblock js_extra %}
 </body>
 </html>
