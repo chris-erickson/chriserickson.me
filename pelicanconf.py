@@ -9,8 +9,8 @@ TODAY = datetime.date.today()
 SETTINGS_DIR_PATH = path.dirname(path.abspath(__file__))
 
 AUTHOR = u'Chris Erickson'
-SITENAME = u'The Wrong Stuff'
-SITETAGLINE = u'The Right Place for the Wrong Stuff'
+SITENAME = u'Chris Erickson'
+SITETAGLINE = u'Not like the phone.'
 SITEURL = ''
 
 TIMEZONE = 'America/Chicago'
