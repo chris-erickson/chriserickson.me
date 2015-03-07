@@ -1,36 +1,42 @@
 <!-- Post -->
 <article class="article">
-	<header>
-	{% if article.link %}
-		<h2 class="post-title">
+    <header>
+    {% if article.link %}
+        <h2 class="post-title">
             <a href="{{ article.link }}">
                 {{ article.title }}
             </a>
-			<span class="link-arrow">→</span>
-		</h2>
-		{% if article.subtitle %}
-		<h3 class="post-subtitle">
-			{{ article.subtitle }}
-		</h3>
-		{% endif %}
-	{% else %}
-		<h2 class="post-title">
-			{{ article.title }}
-		</h2>
-		<div class="post-meta">
-			<p>
-				<time datetime="{{ article.date }}" pubdate="pubdate">{{ article.locale_date }}</time>
-				 · <a class="permalink" title="Permalink" href="{{ SITEURL }}/{{ article.url }}"><span class="hidden-print">∞</span><span class="visible-print-block">{{ SITEURL }}/{{ article.url }}</span></a>
-			</p>
-		</div>
-		{% if article.subtitle %}
-		<h3 class="post-subtitle">
-			{{ article.subtitle }}
-		</h3>
-		{% endif %}
-	{% endif %}
-	</header>
-	<div class="post-content">
-		{{ article.content }}
-	</div>
+            <span class="link-arrow">→</span>
+        </h2>
+        <div class="post-meta">
+            <p>
+                <time datetime="{{ article.date }}" pubdate="pubdate">{{ article.locale_date }}</time>
+                 · <a class="permalink" title="Permalink" href="{{ SITEURL }}/{{ article.url }}"><span class="hidden-print">∞</span><span class="visible-print-block">{{ SITEURL }}/{{ article.url }}</span></a>
+            </p>
+        </div>
+        {% if article.subtitle %}
+        <h3 class="post-subtitle">
+            {{ article.subtitle }}
+        </h3>
+        {% endif %}
+    {% else %}
+        <h2 class="post-title">
+            {{ article.title }}
+        </h2>
+        <div class="post-meta">
+            <p>
+                <time datetime="{{ article.date }}" pubdate="pubdate">{{ article.locale_date }}</time>
+                 · <a class="permalink" title="Permalink" href="{{ SITEURL }}/{{ article.url }}"><span class="hidden-print">∞</span><span class="visible-print-block">{{ SITEURL }}/{{ article.url }}</span></a>
+            </p>
+        </div>
+        {% if article.subtitle %}
+        <h3 class="post-subtitle">
+            {{ article.subtitle }}
+        </h3>
+        {% endif %}
+    {% endif %}
+    </header>
+    <div class="post-content">
+        {{ article.content }}
+    </div>
 </article>

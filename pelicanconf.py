@@ -57,9 +57,9 @@ PAGINATION_PATTERNS = (
 )
 
 # URLs
-DEFAULT_DATE_FORMAT = "%B %-m, %Y"
-ARTICLE_URL = "{date:%Y}/{date:%m}/{slug}.html"
-ARTICLE_SAVE_AS = "{date:%Y}/{date:%m}/{slug}.html"
+DEFAULT_DATE_FORMAT = "%B %-d, %Y"
+ARTICLE_URL = "{date:%Y}/{date:%m}/{slug}"
+ARTICLE_SAVE_AS = "{date:%Y}/{date:%m}/{slug}.htm"
 AUTHOR_SAVE_AS = ''
 AUTHORS_SAVE_AS = ''
 CATEGORIES_SAVE_AS = ''
