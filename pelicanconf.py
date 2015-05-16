@@ -46,6 +46,22 @@ STATIC_PATHS = ['images', 'extra']
 EXTRA_PATH_METADATA = {
     'extra/CNAME': {'path': 'CNAME'},
     'extra/robots.txt': {'path': 'robots.txt'},
+    'extra/favicon/apple-touch-icon-57x57.png': {'path': 'apple-touch-icon-57x57.png'},
+    'extra/favicon/apple-touch-icon-60x60.png': {'path': 'apple-touch-icon-60x60.png'},
+    'extra/favicon/apple-touch-icon-72x72.png': {'path': 'apple-touch-icon-72x72.png'},
+    'extra/favicon/apple-touch-icon-76x76.png': {'path': 'apple-touch-icon-76x76.png'},
+    'extra/favicon/apple-touch-icon-114x114.png': {'path': 'apple-touch-icon-114x114.png'},
+    'extra/favicon/apple-touch-icon-120x120.png': {'path': 'apple-touch-icon-120x120.png'},
+    'extra/favicon/apple-touch-icon-144x144.png': {'path': 'apple-touch-icon-144x144.png'},
+    'extra/favicon/apple-touch-icon-152x152.png': {'path': 'apple-touch-icon-152x152.png'},
+    'extra/favicon/apple-touch-icon-180x180.png': {'path': 'apple-touch-icon-180x180.png'},
+    'extra/favicon/favicon-32x32.png': {'path': 'favicon-32x32.png'},
+    'extra/favicon/android-chrome-192x192.png': {'path': 'android-chrome-192x192.png'},
+    'extra/favicon/favicon-96x96.png': {'path': 'favicon-96x96.png'},
+    'extra/favicon/favicon-16x16.png': {'path': 'favicon-16x16.png'},
+    'extra/favicon/manifest.json': {'path': 'manifest.json'},
+    'extra/favicon/mstile-144x144.png': {'path': 'mstile-144x144.png'},
+    'extra/favicon/favicon.ico': {'path': 'favicon.ico'},
 }
 
 # Pagination
