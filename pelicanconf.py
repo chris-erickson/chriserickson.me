@@ -60,6 +60,7 @@ EXTRA_PATH_METADATA = {
     'extra/favicon/favicon-96x96.png': {'path': 'favicon-96x96.png'},
     'extra/favicon/favicon-16x16.png': {'path': 'favicon-16x16.png'},
     'extra/favicon/manifest.json': {'path': 'manifest.json'},
+    'extra/favicon/browserconfig.xml': {'path': 'browserconfig.xml'},
     'extra/favicon/mstile-144x144.png': {'path': 'mstile-144x144.png'},
     'extra/favicon/favicon.ico': {'path': 'favicon.ico'},
 }
@@ -87,4 +88,5 @@ YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
 
 # Social
 GITHUB_URL = "https://github.com/chris-erickson"
-TWITTER_URL = "https://www.twitter.com/chriserickson"
+TWITTER_USERNAME = "chriserickson"
+TWITTER_URL = "https://www.twitter.com/{}".format(TWITTER_USERNAME)
