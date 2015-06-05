@@ -1,16 +1,20 @@
 <!doctype html>
-<html lang="{{ DEFAULT_LANG }}">
+<html lang="{{ DEFAULT_LANG }}" prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{% block title_front %}{% endblock %}{% block title_seperator %} | {% endblock %}{% block title_end %}{{ SITENAME }}{% endblock title_end %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {# <link rel="author" href="{{ SITEURL }}/about.html"> #}
-    {# <link rel="canonical" href="{{ SITEURL }}/{{ output_file }}"> #}
-    {# <meta property="og:site_name" content="{{ SITENAME }}"> #}
-    {# <meta property="og:url" content="{{ SITEURL }}/{{ output_file }}"> #}
-    {# <meta property="fb:profile_id" content="{{ FACEBOOK_PROFILE_ID }}"> #}
-    {# <meta name="twitter:creator" content="@{{ TWITTER_USERNAME }}"> #}
+    <link rel="canonical" href="{{ SITEURL }}/{{ output_file }}">
+    <title>{% block title_front %}{% endblock %}{% block title_seperator %} | {% endblock %}{% block title_end %}{{ SITENAME }}{% endblock title_end %}</title>
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="{{ SITENAME }}">
+    {% if article %}
+    <meta property="og:title" content="{{ article.title }}">
+    {% endif %}
+    <meta property="og:url" content="{{ SITEURL }}/{{ output_file }}">
+    <meta property="og:type" content="blog">
+    <meta name="twitter:creator" content="@{{ TWITTER_USERNAME }}">
 
     {# Generated with: http://realfavicongenerator.net #}
     {# More: http://stackoverflow.com/questions/2268204/favicon-dimensions #}
@@ -31,6 +35,7 @@
     <meta name="msapplication-TileColor" content="#00aba9">
     <meta name="msapplication-TileImage" content="mstile-144x144.png">
     <meta name="theme-color" content="#ffffff">
+    <meta name="msapplication-config" content="/browserconfig.xml" />
 
     {% block head_extra %}{% endblock head_extra %}
 
@@ -53,7 +58,6 @@
     {% include "includes/nav.html" %}
 
     <!-- Page Header -->
-    <!-- Set your background image for this header on the line below. -->
     <header>
         <div class="container-fluid masthead">
             <div class="row">
