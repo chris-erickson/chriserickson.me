@@ -50,8 +50,6 @@ The takeaway here is that 100,000 iterations will make your user wait another 36
 
 As an aside, I haven't tried [scrypt](https://en.wikipedia.org/wiki/Scrypt) since it isn't really supported out of the box with Django.  In theory, that would be the best one to switch to from PBKDF2 as it puts up substantial barriers to massive cracking array scenarios.  Some [libraries](https://pypi.python.org/pypi/scrypt) and [django apps](https://pypi.python.org/pypi/django-scrypt) exist, but they don't inspire a lot of confidence in an area where they really ought to.
 
-In the end, it's probably easiest to just increase the number of iterations of PBKDF2 to a length that is as high as your users will be patient with [^tophnhit].  Also keep in mind that this could open you to DOS attacks if you don't have any throttling on your login page.  Something like [fail2ban](https://en.wikipedia.org/wiki/Fail2ban) can help you throttle an IP that is repeatedly failing the login process.
+In the end, it's probably easiest to just increase the number of iterations of PBKDF2 to a length that is as high as your users will be patient with, since [some](http://www.unlimitednovelty.com/2012/03/dont-use-bcrypt.html) don't seem to like bcrypt very much.
 
-[^tophnhit]: Some say, bcrypt is [not so good](http://www.unlimitednovelty.com/2012/03/dont-use-bcrypt.html).
-
-Don't forget to also increase this over time, like [Django does](https://docs.djangoproject.com/en/1.8/topics/auth/passwords/#increasing-the-work-factor).
+With these changes, keep in mind that this could open you to DOS attacks if you don't have any throttling on your login page.  Something like [fail2ban](https://en.wikipedia.org/wiki/Fail2ban) can help you throttle an IP that is repeatedly failing the login process.  Also don't forget to increase this over time, like [Django does](https://docs.djangoproject.com/en/1.8/topics/auth/passwords/#increasing-the-work-factor).
