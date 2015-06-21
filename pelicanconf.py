@@ -20,7 +20,10 @@ DEFAULT_LANG = u'en'
 PLUGIN_PATHS = [
     'pelican-plugins'
 ]
-PLUGINS = ['assets']
+PLUGINS = [
+    'assets',
+    'bootstrapify'
+]
 ASSET_CONFIG = (
     ('LESS_BIN', path.join(SETTINGS_DIR_PATH, 'node_modules/less/bin/lessc')),
     ('CLEANCSS_BIN', path.join(SETTINGS_DIR_PATH, 'node_modules/clean-css/bin/cleancss')),
