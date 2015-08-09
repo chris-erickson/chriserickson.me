@@ -4,15 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {# <link rel="author" href="{{ SITEURL }}/about.html"> #}
-    <link rel="canonical" href="{{ SITEURL }}/{{ output_file }}">
     <title>{% block title_front %}{% endblock %}{% block title_seperator %} | {% endblock %}{% block title_end %}{{ SITENAME }}{% endblock title_end %}</title>
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="{{ SITENAME }}">
     {% if article %}
     <meta property="og:title" content="{{ article.title }}">
     {% endif %}
-    <meta property="og:url" content="{{ SITEURL }}/{{ output_file }}">
     <meta property="og:type" content="blog">
     <meta name="twitter:creator" content="@{{ TWITTER_USERNAME }}">
 
@@ -46,7 +43,7 @@
     {% endblock feeds %}
 
     <script src="//use.typekit.net/vrr2fgk.js"></script>
-    <script>try{Typekit.load();}catch(e){}</script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
     {% assets filters="less,cleancss", output="css/site.min.css", "less/site.less" %}
     <link rel="stylesheet" href="{{ SITEURL }}/{{ ASSET_URL }}">
