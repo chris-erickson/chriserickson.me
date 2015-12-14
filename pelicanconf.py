@@ -10,7 +10,7 @@ SETTINGS_DIR_PATH = path.dirname(path.abspath(__file__))
 
 AUTHOR = u'Chris Erickson'
 SITENAME = u'Chris Erickson'
-SITETAGLINE = u'Not like the phone.'
+SITETAGLINE = u'Life is an Adventure.'
 SITEURL = ''
 
 TIMEZONE = 'America/Chicago'
@@ -22,13 +22,28 @@ PLUGIN_PATHS = [
 ]
 PLUGINS = [
     'assets',
-    'bootstrapify'
+    'bootstrapify',
+    'sitemap',
 ]
 ASSET_CONFIG = (
     ('LESS_BIN', path.join(SETTINGS_DIR_PATH, 'node_modules/less/bin/lessc')),
     ('CLEANCSS_BIN', path.join(SETTINGS_DIR_PATH, 'node_modules/clean-css/bin/cleancss')),
     ('UGLIFYJS_BIN', path.join(SETTINGS_DIR_PATH, 'node_modules/uglify-js/bin/uglifyjs')),
 )
+
+SITEMAP = {
+    'format': 'xml',
+    'priorities': {
+        'articles': 0.5,
+        'indexes': 0.5,
+        'pages': 0.5
+    },
+    'changefreqs': {
+        'articles': 'monthly',
+        'indexes': 'daily',
+        'pages': 'monthly'
+    }
+}
 
 # Feed Generation
 FEED_ALL_ATOM = None
@@ -80,6 +95,8 @@ PAGINATION_PATTERNS = (
 DEFAULT_DATE_FORMAT = "%B %-d, %Y"
 ARTICLE_URL = "{date:%Y}/{date:%m}/{slug}"
 ARTICLE_SAVE_AS = "{date:%Y}/{date:%m}/{slug}.htm"
+PAGE_SAVE_AS = '{slug}.htm'
+PAGE_URL = '{slug}.htm'
 AUTHOR_SAVE_AS = ''
 AUTHORS_SAVE_AS = ''
 CATEGORIES_SAVE_AS = ''

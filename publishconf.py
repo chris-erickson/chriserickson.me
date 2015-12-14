@@ -13,6 +13,8 @@ from pelicanconf import *
 SITEURL = 'https://chriserickson.me'
 RELATIVE_URLS = False
 
+PAGE_URL = '{slug}'
+
 FEED_ALL_ATOM = 'atom.xml'
 
 DELETE_OUTPUT_DIRECTORY = True
