@@ -17,10 +17,10 @@
 @import "@{basePath}/less/grid.less";
 @import "@{basePath}/less/tables.less";
 @import "@{basePath}/less/forms.less";
-@import "@{basePath}/less/buttons.less";
+// @import "@{basePath}/less/buttons.less";
 
 // Components
-@import "@{basePath}/less/component-animations.less";
+// @import "@{basePath}/less/component-animations.less";
 // @import "@{basePath}/less/dropdowns.less";
 // @import "@{basePath}/less/button-groups.less";
 // @import "@{basePath}/less/glyphicons.less";
@@ -61,7 +61,7 @@
 @brand-primary: #444;
 @brand-secondary: #D30000;
 
-@font-family-sans-serif: "lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-sans-serif: 'Avenir Next', 'HelveticaNeue-Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 @body-bg:    @white;
 @text-color: @black;
@@ -84,13 +84,12 @@
 @navbar-default-link-active-color: @white;
 @navbar-default-link-active-bg: lighten(@brand-primary, 6.5%);
 
-
 .font-body-regular (@size: 16px, @height: 1em) {
-    font: 300 @size/@height "lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font: 400 @size/@height @font-family-sans-serif;
 }
 
 .font-body-bold (@size: 16px, @height: 1em) {
-    font: 900 @size/@height "lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font: 600 @size/@height @font-family-sans-serif;
 }
 
 // Add any inividual less files here
@@ -115,8 +114,12 @@ body {
     }
 }
 
-h2 {
+h1 {
     .font-body-bold(2.9em, 1em);
+}
+
+h2 {
+    .font-body-bold(2.0em, 1em);
 }
 
 h3 {
@@ -133,9 +136,9 @@ p {
     color: #fff;
 }
 
-// a {
-//     text-decoration: underline;
-// }
+li {
+    .font-body-regular(1.2em, 1.375em);
+}
 
 .navbar {
     margin-bottom: -50px;

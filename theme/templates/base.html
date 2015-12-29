@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title_front %}{% endblock %}{% block title_seperator %} | {% endblock %}{% block title_end %}{{ SITENAME }}{% endblock title_end %}</title>
+
+    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.net/">
+    <link rel="dns-prefetch" href="//code.jquery.com/">
+
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="{{ SITENAME }}">
     {% if article %}
@@ -42,13 +46,10 @@
        {% endif %}
     {% endblock feeds %}
 
-    <script src="//use.typekit.net/vrr2fgk.js"></script>
-    <script>try{Typekit.load({ async: true });}catch(e){}</script>
-
     {% assets filters="less,cleancss", output="css/site.min.css", "less/site.less" %}
     <link rel="stylesheet" href="{{ SITEURL }}/{{ ASSET_URL }}">
     {% endassets %}
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -84,7 +85,9 @@
 
     {% include "includes/footer.html" %}
 
-    {% assets filters="uglifyjs", output="js/site.min.js", "vendor/jquery/dist/jquery.js", "vendor/bootstrap/dist/js/bootstrap.min.js", "vendor/bigfoot/dist/bigfoot.min.js", "js/site.js" %}
+    <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    {% assets filters="uglifyjs", output="js/site.min.js", "vendor/bigfoot/dist/bigfoot.min.js", "js/site.js" %}
     <script src="{{ SITEURL }}/{{ ASSET_URL }}"></script>
     {% endassets %}
 
