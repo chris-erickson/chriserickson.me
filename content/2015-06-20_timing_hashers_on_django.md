@@ -42,7 +42,7 @@ When running these on a single core, 512MB of RAM [Digital Ocean droplet](https:
 
 |Hash|Time|
 |---|---|
-|PBKDF2 - 12,000|121 ms|
+|PBKDF2 - 24,000|121 ms|
 |PBKDF2 - 100,000|487 ms|
 |bcrypt - 12|395 ms|
 

@@ -23,6 +23,13 @@ $ ./develop_server.sh
 
 Typically you would run this with ```./develop_server.sh start 5000```.  This watches files for any changes, and should pick them up automatically.  This kicks off the server in the background, so when you're all done, you'll want to stop the server by running ```./develop_server.sh stop```.
 
+### Getting Latest Submodules
+
+```shell
+# Source: http://stackoverflow.com/a/5828396/2057885
+git submodule foreach git pull origin master
+```
+
 ## Writing Content
 
 ### Contributing Content
@@ -101,7 +108,7 @@ cd "/var/www/venvs/chriserickson.me/chriserickson.me"
 source "/var/www/venvs/chriserickson.me/bin/activate"
 git pull
 pip install -r requirements.txt
-npm install
+yarn install
 bower install
 make publish
 ```
@@ -121,7 +128,7 @@ cd chriserickson.me
 # Install Python Requirements
 pip install -r requirements.txt
 # Install Bower static files
-bower install
+bower install # May need ./node_modules/.bin/bower install if node_modules isn't in PATH
 # Development build
 pelican -s pelicanconf.py
 # or Production build
@@ -170,12 +177,12 @@ pip install -r requirements.txt
 Install node dependencies:
 
 ``` shell
-npm install
+yarn install
 ```
 
 Install Bower dependencies:
 
 ``` shell
-npm install -g bower
+# Depends on yarn install
 bower install
 ```
