@@ -113,6 +113,7 @@ yarn install
 ./node_modules/.bin/bower install
 make publish
 ```
+If a CDN is in place, updates might take a while to propagate.
 
 ## Build Instructions
 
