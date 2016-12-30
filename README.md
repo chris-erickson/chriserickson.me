@@ -107,9 +107,10 @@ If you want to include images in a post, you need to use the following syntax (m
 cd "/var/www/venvs/chriserickson.me/chriserickson.me"
 source "/var/www/venvs/chriserickson.me/bin/activate"
 git pull
+git submodule foreach git pull origin master
 pip install -r requirements.txt
 yarn install
-bower install
+./node_modules/.bin/bower install
 make publish
 ```
 
