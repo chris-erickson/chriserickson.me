@@ -4,8 +4,7 @@
   "private": true,
   "dependencies": {
     "bower": "1.8.0",
-    "less": "2.7.1",
-    "uglify-js": "2.7.5",
-    "clean-css": "3.4.23"
+    "less": "2.7.2",
+    "uglify-js": "2.8.22"
   }
 }
