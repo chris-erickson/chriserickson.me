@@ -26,8 +26,15 @@ Typically you would run this with ```./develop_server.sh start 5000```.  This wa
 ### Getting Latest Submodules
 
 ```shell
+# First time
+git submodule init
+git submodule update
 # Source: http://stackoverflow.com/a/5828396/2057885
 git submodule foreach git pull origin master
+# or sometimes this works
+git submodule update --init --recursive
+# This is new and updates the commit number
+git submodule update --remote --merge
 ```
 
 ## Writing Content

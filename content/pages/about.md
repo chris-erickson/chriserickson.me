@@ -4,7 +4,7 @@ Just an assortment of things about me, since Facebook isn't going to provide you
 
 ## How I Keep the Lights On
 
-I'm currently a Web Application Developer at [GS](https://www.gsdesign.com) in Glendale, WI.  Prior to this, I went to [Milwaukee School of Engineering](http://www.msoe.edu) two times; first for Mechanical Engineering, then a handful of years later for Computer Engineering.  As a Mechanical Engineer I [led a team](http://www.emteq.com) to design most of the lighting you might find if you are ever so lucky to get a ride on a [Gulfstream G650](http://www.gulfstream.com/aircraft/gulfstream-g650), in addition to a wide variety of other LED aircraft lighting.  Now I build web sites for companies that want engaging customer experiences.
+I'm currently a Front End Engineer at [Northwestern Mutual](https://www.northwesternmutual.com), where I build React apps. I was last a Web Application Developer at [GS](https://www.gsdesign.com) in Glendale, WI.  Prior to this, I went to [Milwaukee School of Engineering](http://www.msoe.edu) two times; first for Mechanical Engineering, then a handful of years later for Computer Engineering.  As a Mechanical Engineer I [led a team](http://www.emteq.com) to design most of the lighting you might find if you are ever so lucky to get a ride on a [Gulfstream G650](http://www.gulfstream.com/aircraft/gulfstream-g650), in addition to a wide variety of other LED aircraft lighting.  I like to build web sites for companies that want modern, engaging customer experiences.
 
 ## When There is Time
 
@@ -13,6 +13,7 @@ I dabble with HAM radio, love to cook, make pretentious drinks, and attempt phot
 ## Projects I've Worked On
 ### Professionally
 - [Mercury Marine](https://www.mercurymarine.com/en/us/)
+- [Pretzilla (a Wagtail site)](https://www.pretzilla.com)
 - [Graphics Systems Corporation (GSC)](https://www.gsc-3d.com)
 - [Maxwell Thomas](https://www.maxwellthomas.com)
 - [YWS International](https://ywsinternational.com/)
@@ -27,8 +28,9 @@ I dabble with HAM radio, love to cook, make pretentious drinks, and attempt phot
 - [EASENET](https://web.archive.org/web/20140517055620/http://easenet.co/)
 
 ## What I'm Not Terrible At
-- Python / Django
+- Python / Django / Wagtail
 - React / React Native
+- Linux server management / nginx / Postgres / Redis
 - Objective-C / Swift
 
 ## Podcasts I Listen To
@@ -50,7 +52,6 @@ Here's my top podcasts.  These are the ones I almost never miss and they are in 
 
 ### iOS
 * [Bear](https://itunes.apple.com/us/app/bear-beautiful-writing-app/id1016366447?ls=1&mt=8)
-* [Check the Weather](https://itunes.apple.com/us/app/check-the-weather/id557872119?mt=8)
 * [Dark Sky](https://itunes.apple.com/us/app/dark-sky-hyperlocal-weather/id517329357?mt=8)
 * [Day One](https://itunes.apple.com/us/app/day-one-journal-notes-diary/id421706526?mt=8)
 * [Instapaper](https://itunes.apple.com/us/app/instapaper/id288545208?mt=8)
@@ -60,6 +61,7 @@ Here's my top podcasts.  These are the ones I almost never miss and they are in 
 * [Spotify](https://itunes.apple.com/us/app/spotify-music/id324684580?mt=8)
 * [Twitterific](https://itunes.apple.com/us/app/twitterrific-5-for-twitter/id580311103?mt=8)
 * [Unread](https://itunes.apple.com/us/app/unread-rss-news-reader/id911364254?mt=8)
+* [Weather Line](https://itunes.apple.com/us/app/weather-line-temperature-trend/id715319015?mt=8)
 
 ### OS X
 * [Atom](https://atom.io)
