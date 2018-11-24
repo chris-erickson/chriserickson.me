@@ -6,8 +6,13 @@ jobs:
       - image: circleci/python:2-node
     steps:
       - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            python -m venv venv || virtualenv venv
+            . venv/bin/activate
+            pip install -r requirements.txt
       - run: yarn install --frozen-lockfile
-      - run: pip install -r requirements.txt
       - run: git submodule update --init --recursive
       - run: make publish
   deploy:
@@ -22,3 +27,5 @@ workflows:
     jobs:
       - install
       - deploy
+          requires:
+            - install
