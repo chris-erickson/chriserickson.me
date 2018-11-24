@@ -14,7 +14,10 @@ jobs:
             pip install -r requirements.txt
       - run: yarn install --frozen-lockfile
       - run: git submodule update --init --recursive
-      - run: make publish
+      - run:
+          command: |
+            . venv/bin/activate
+            make publish
   deploy:
     docker:
       - image: circleci/python:2.7-node
