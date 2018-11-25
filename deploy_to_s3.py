@@ -14,7 +14,7 @@ from multiprocessing.pool import ThreadPool
 
 bucket_name = 'stage.chriserickson.me'
 s3 = boto3.resource('s3')
-bucket = s3.Bucket(bucket)
+bucket = s3.Bucket(bucket_name)
 
 os.chdir('output')
 filepaths = (os.path.join(root, filename)[2:] for root, dirs, files in os.walk('.') for filename in files)
