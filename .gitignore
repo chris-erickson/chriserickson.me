@@ -6,3 +6,4 @@ npm-debug.log
 cache/
 output/
 node_modules/
+theme/static/vendor
