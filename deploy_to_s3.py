@@ -22,6 +22,10 @@ filepaths = (os.path.join(root, filename)[2:] for root, dirs, files in os.walk('
 def put_file(filepath):
     key = filepath
     content_type = mimetypes.guess_type(filepath)[0] or 'text/plain'
+
+    print("Filepath: {}".format(filepath))
+    print("Content-Type: {}".format(content_type))
+
     if filepath.endswith('.html') and filepath != 'index.html':
         key = filepath[:-len('.html')]
     s3.Object(bucket_name, key).put(
@@ -34,7 +38,6 @@ def put_file(filepath):
 bucket.objects.all().delete()
 
 print("Bucket: {}".format(bucket_name))
-print("Filepaths: {}".format(filepaths))
 
 # Upload the files
 ThreadPool(10).map(put_file, filepaths)
