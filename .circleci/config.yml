@@ -52,7 +52,9 @@ jobs:
       - restore_cache: *restore-node-cache
       - run:
           name: Copy files to S3
-          command: python ./deploy_to_s3.py
+          command: |
+            . venv/bin/activate
+            python deploy_to_s3.py
 
 workflows:
   version: 2
