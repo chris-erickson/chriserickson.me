@@ -7,4 +7,4 @@ curl --request POST \
   --header 'content-type: application/json' \
   --header "x-auth-email: $CF_USER_EMAIL" \
   --header "x-auth-key: $CF_USER_AUTH_KEY" \
-  --data '{"purge_everything": true}'
+  --data '{"purge_everything": true}' || exit 1
