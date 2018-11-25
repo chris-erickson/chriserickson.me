@@ -9,9 +9,6 @@ from multiprocessing.pool import ThreadPool
 
 stage = sys.argv[1] or "stage"
 
-# TODO: Support stage/prod input to select the right bucket
-# Short lifetime on html, longer on anything else
-
 if stage == "stage":
     bucket_name = 'stage.chriserickson.me'
 else:
@@ -44,9 +41,6 @@ def should_copy_file_with_path(filepath):
 def put_file(filepath):
     key = filepath
     content_type = mimetypes.guess_type(filepath)[0] or 'text/plain'
-
-    print("Filepath: {}".format(filepath))
-    print("Content-Type: {}".format(content_type))
 
     if should_remove_extension(filepath):
         key = filepath[:-len('.html')]
