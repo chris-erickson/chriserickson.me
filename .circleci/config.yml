@@ -55,7 +55,7 @@ jobs:
       - run:
           command: |
             . venv/bin/activate
-            make publish
+            make publish-stage
       - run:
           name: Copy files to S3
           command: |

@@ -28,7 +28,7 @@ filepaths = (os.path.join(root, filename)[2:] for root, dirs, files in os.walk('
 
 EXCLUDE_FILEPATHS = (
     "theme/.webassets-cache",
-    "theme/js/site",
+    "theme/js/site.js",
     "theme/less",
     "theme/vendor",
 )
@@ -48,7 +48,7 @@ def put_file(filepath):
     print("Filepath: {}".format(filepath))
     print("Content-Type: {}".format(content_type))
 
-    if filepath.endswith('.html') and filepath != 'index.html':
+    if should_remove_extension(filepath):
         key = filepath[:-len('.html')]
 
     if should_copy_file_with_path(filepath):
