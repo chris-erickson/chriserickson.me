@@ -9,6 +9,7 @@ from multiprocessing.pool import ThreadPool
 
 bucket = 'stage.chriserickson.me'
 s3 = boto3.resource('s3')
+bucket = s3.Bucket(bucket)
 
 os.chdir('output')
 filepaths = (os.path.join(root, filename)[2:] for root, dirs, files in os.walk('.') for filename in files)
@@ -24,4 +25,8 @@ def put_file(filepath):
         CacheControl='max-age=3600',
     )
 
+# Clear out the bucket
+bucket.objects.all().delete()
+
+# Upload the files
 ThreadPool(10).map(put_file, filepaths)
