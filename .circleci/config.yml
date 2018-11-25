@@ -1,13 +1,21 @@
 aliases:
-  - &restore-cache
+  - &restore-python-cache
     keys:
-      - dependencies-{{ .Branch }}-{{ checksum "package.json" }}-{{ checksum "requirements.txt" }}-{{ checksum "yarn.lock.txt" }}
+      - dependencies-{{ .Branch }}-{{ checksum "requirements.txt" }}
 
-  - &save-cache
+  - &restore-node-cache
+    keys:
+      - dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
+
+  - &save-python-cache
     paths:
       - venv
+    key: dependencies-{{ .Branch }}-{{ checksum "requirements.txt" }}
+
+  - &save-node-cache
+    paths:
       - node_modules
-    key: dependencies-{{ .Branch }}-{{ checksum "package.json" }}-{{ checksum "requirements.txt" }}-{{ checksum "yarn.lock.txt" }}
+    key: dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
 
 version: 2
 jobs:
@@ -15,9 +23,11 @@ jobs:
     docker:
       # - image: circleci/python:2.7-node-browsers-legacy
       - image: circleci/python:2-node
+    working_directory: ~/app
     steps:
       - checkout
-      - restore_cache: *restore-cache
+      - restore_cache: *restore-python-cache
+      - restore_cache: *restore-node-cache
       - run:
           name: Install dependencies
           command: |
@@ -30,13 +40,16 @@ jobs:
           command: |
             . venv/bin/activate
             make publish
-      - save_cache: *save-cache
+      - save_cache: *save-python-cache
+      - save_cache: *save-node-cache
   deploy:
     docker:
       - image: circleci/python:2.7-node
+    working_directory: ~/app
     steps:
       - checkout
-      - restore_cache: *restore-cache
+      - restore_cache: *restore-python-cache
+      - restore_cache: *restore-node-cache
       - run:
           name: Copy files to S3
           command: python ./deploy_to_s3.py
