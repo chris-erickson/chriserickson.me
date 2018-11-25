@@ -60,7 +60,7 @@ jobs:
           name: Copy files to S3
           command: |
             . venv/bin/activate
-            python deploy_to_s3.py
+            python deploy_to_s3.py stage
 
 workflows:
   version: 2

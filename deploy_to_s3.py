@@ -1,23 +1,45 @@
 # From: https://jasonstitt.com/codebuild-pelican-blog-updates
 import mimetypes
 import os
+import sys
 
 import boto3
 
 from multiprocessing.pool import ThreadPool
 
+stage = sys.argv[1] or "stage"
+
 # TODO: Support stage/prod input to select the right bucket
 # Short lifetime on html, longer on anything else
-# TODO: Some print statements here to know what's going on here: https://circleci.com/gh/chris-erickson/chriserickson.me/24
-# TODO: Utility to check for skip dirs (.webassets-cache, less, js.NOT.min) - or maybe jsut delete it on build, in makefile
-# TODO: Utility to check for skip paths ()
 
-bucket_name = 'stage.chriserickson.me'
+if stage == "stage":
+    bucket_name = 'stage.chriserickson.me'
+else:
+    bucket_name = "www.chriserickson.me"
+
+
+print("Uploading files to {} using bucket {}".format(stage, bucket_name))
+
 s3 = boto3.resource('s3')
 bucket = s3.Bucket(bucket_name)
 
 os.chdir('output')
 filepaths = (os.path.join(root, filename)[2:] for root, dirs, files in os.walk('.') for filename in files)
+
+EXCLUDE_FILEPATHS = (
+    "theme/.webassets-cache",
+    "theme/js/site",
+    "theme/less",
+    "theme/vendor",
+)
+
+def should_remove_extension(filepath):
+    return filepath and filepath.endswith('.html')
+
+
+def should_copy_file_with_path(filepath):
+    return not any(ex in filepath for ex in EXCLUDE_FILEPATHS)
+
 
 def put_file(filepath):
     key = filepath
@@ -28,16 +50,16 @@ def put_file(filepath):
 
     if filepath.endswith('.html') and filepath != 'index.html':
         key = filepath[:-len('.html')]
-    s3.Object(bucket_name, key).put(
-        Body=open(filepath, 'rb'),
-        ContentType=content_type,
-        CacheControl='max-age=3600',
-    )
+
+    if should_copy_file_with_path(filepath):
+        s3.Object(bucket_name, key).put(
+            Body=open(filepath, 'rb'),
+            ContentType=content_type,
+            CacheControl='max-age=3600',
+        )
 
 # Clear out the bucket
 bucket.objects.all().delete()
-
-print("Bucket: {}".format(bucket_name))
 
 # Upload the files
 ThreadPool(10).map(put_file, filepaths)
