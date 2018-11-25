@@ -18,7 +18,7 @@ DEFAULT_LANG = u'en'
 
 # Plugins
 PLUGIN_PATHS = [
-    'pelican-plugins'
+    'pelican-plugins',
 ]
 PLUGINS = [
     'assets',
@@ -83,19 +83,22 @@ EXTRA_PATH_METADATA = {
 }
 
 # Pagination
-DEFAULT_PAGINATION = 10
+DEFAULT_PAGINATION = 30
 DEFAULT_ORPHANS = 3
 PAGINATION_PATTERNS = (
     (1, '{base_name}/', '{base_name}/index.html'),
     (2, '{base_name}/page/{number}/', '{base_name}/page/{number}/index.html'),
 )
 
+# Structure
+DIRECT_TEMPLATES = ['index', ]
+
 # URLs
 DEFAULT_DATE_FORMAT = "%B %-d, %Y"
 ARTICLE_URL = "{date:%Y}/{date:%m}/{slug}"
-ARTICLE_SAVE_AS = "{date:%Y}/{date:%m}/{slug}.htm"
-PAGE_SAVE_AS = '{slug}.htm'
-PAGE_URL = '{slug}.htm'
+ARTICLE_SAVE_AS = "{date:%Y}/{date:%m}/{slug}.html"
+PAGE_SAVE_AS = '{slug}.html'
+PAGE_URL = '{slug}'
 AUTHOR_SAVE_AS = ''
 AUTHORS_SAVE_AS = ''
 CATEGORIES_SAVE_AS = ''

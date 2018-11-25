@@ -7,7 +7,6 @@
     <title>{% block title_front %}{% endblock %}{% block title_seperator %} | {% endblock %}{% block title_end %}{{ SITENAME }} – {{ SITETAGLINE }}{% endblock title_end %}</title>
 
     <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.net/">
-    <link rel="dns-prefetch" href="//code.jquery.com/">
 
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="{{ SITENAME }}">
@@ -85,9 +84,7 @@
 
     {% include "includes/footer.html" %}
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-
-    {% assets filters="uglifyjs", output="js/site.min.js", "vendor/bigfoot/dist/bigfoot.min.js", "js/site.js" %}
+    {% assets filters="uglifyjs", output="js/site.min.js", "vendor/jquery/dist/jquery.slim.min.js", "vendor/bigfoot/dist/bigfoot.min.js", "js/site.js" %}
     <script src="{{ SITEURL }}/{{ ASSET_URL }}"></script>
     {% endassets %}
 

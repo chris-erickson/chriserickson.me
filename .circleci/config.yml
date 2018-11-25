@@ -1,0 +1,105 @@
+aliases:
+  - &restore-python-cache
+    keys:
+      - dependencies-{{ .Branch }}-{{ checksum "requirements.txt" }}
+
+  - &restore-node-cache
+    keys:
+      - dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
+
+  - &save-python-cache
+    paths:
+      - venv
+    key: dependencies-{{ .Branch }}-{{ checksum "requirements.txt" }}
+
+  - &save-node-cache
+    paths:
+      - node_modules
+    key: dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
+
+version: 2
+jobs:
+  build:
+    docker:
+      # - image: circleci/python:2.7-node-browsers-legacy
+      - image: circleci/python:2-node
+    working_directory: ~/app
+    steps:
+      - checkout
+      - restore_cache: *restore-python-cache
+      - restore_cache: *restore-node-cache
+      - run:
+          name: Install dependencies
+          command: |
+            python -m venv venv || virtualenv venv
+            . venv/bin/activate
+            pip install -r requirements.txt
+      - run: yarn install --frozen-lockfile
+      - run: git submodule update --init --recursive
+      - run:
+          name: Build site
+          command: |
+            . venv/bin/activate
+            make publish
+      - save_cache: *save-python-cache
+      - save_cache: *save-node-cache
+  deploy-stage:
+    docker:
+      - image: circleci/python:2.7-node
+    working_directory: ~/app
+    steps:
+      - checkout
+      - restore_cache: *restore-python-cache
+      - restore_cache: *restore-node-cache
+      - run: git submodule update --init --recursive
+      - run: yarn install --frozen-lockfile
+      - run:
+          name: Build site
+          command: |
+            . venv/bin/activate
+            make publish-stage
+      - run:
+          name: Copy files to S3
+          command: |
+            . venv/bin/activate
+            python deploy_to_s3.py stage
+      - run:
+          name: Purge Cloudflare
+          command: ./deploy_purge_cf_zone.sh
+  deploy-prod:
+    docker:
+      - image: circleci/python:2.7-node
+    working_directory: ~/app
+    steps:
+      - checkout
+      - restore_cache: *restore-python-cache
+      - restore_cache: *restore-node-cache
+      - run: git submodule update --init --recursive
+      - run: yarn install --frozen-lockfile
+      - run:
+          command: |
+            . venv/bin/activate
+            make publish-prod
+      - run:
+          name: Copy files to S3
+          command: |
+            . venv/bin/activate
+            python deploy_to_s3.py prod
+      - run:
+          name: Purge Cloudflare
+          command: ./deploy_purge_cf_zone.sh
+
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
+      - deploy-stage:
+          requires:
+            - build
+      - deploy-prod:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master

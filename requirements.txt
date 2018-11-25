@@ -1,7 +1,10 @@
-beautifulsoup4==4.5.3
-markdown==2.6.8
-pelican==3.7.1
+beautifulsoup4==4.6.3
+markdown==3.0.1
+pelican==4.0.0
 typogrify==2.0.7
 # webassets==0.12.1
--e git://github.com/miracle2k/webassets.git@cc440911c6ac5f08fd98ea08442fe06e7a0aea2a#egg=webassets
+-e git://github.com/miracle2k/webassets.git@34420b231529254fdf2e611a51e2175cd3d89df6#egg=webassets
 rcssmin==1.0.6
+
+# Deploy
+boto3==1.9.50

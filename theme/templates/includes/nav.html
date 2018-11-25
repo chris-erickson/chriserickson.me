@@ -6,7 +6,7 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li {% if output_file == 'archives.html' %}class="active"{% endif %}><a href="{{ SITEURL }}/archives.html">Archives</a></li>
+				{# <li {% if output_file == 'archives.html' %}class="active"{% endif %}><a href="{{ SITEURL }}/archives.html">Archives</a></li> #}
 				{% for pg in pages %}
 				<li {% if pg == page %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ pg.url }}">{{ pg.title }}</a></li>
 				{% endfor %}
